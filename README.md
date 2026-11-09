@@ -135,6 +135,34 @@ TELEGRAM_USER_ID='INPYT_YOUR_TELEGRAM_ID'
 └── README.md              # Документация
 ```
 
+## Настройка отладки приложения
+
+1. Создайте файл launch.json в папке проекта .vscode:
+
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        }
+    ]
+}
+```
+
+2. Создайте файл settings.json в папке проекта .vscode:
+```json
+{
+    "python-envs.defaultEnvManager": "ms-python.python:system",
+    "python-envs.pythonProjects": [],
+    "python.terminal.useEnvFile": true
+}
+```
+
 - **API интеграция (api/)**
   - Безопасное взаимодействие с OpenRouter
   - Обработка ошибок и повторные попытки
