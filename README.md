@@ -14,7 +14,7 @@
 2. **Клонирование проекта**
    ```bash
    # Клонируйте репозиторий
-   git clone https://github.com/neuro-fill/51-lesson.git
+   git clone https://github.com/Alexandr-Andreevich/AI_Chat.git
    # Перейдите в директорию проекта
    cd 51-lesson
    ```
