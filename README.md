@@ -1,6 +1,7 @@
 # Приложение AI Chat
 
 Чат-приложение, использующее API OpenRouter для взаимодействия с различными моделями искусственного интеллекта.
+(инструкция к запуску в google.collab: https://colab.research.google.com/drive/1GbfvMkqRid_c4OBXcDOa-nHxJoPrQ9Z_?usp=sharing)
 
 ## Начало работы
 
