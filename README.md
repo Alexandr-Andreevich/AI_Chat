@@ -16,7 +16,7 @@
    # Клонируйте репозиторий
    git clone https://github.com/Alexandr-Andreevich/AI_Chat.git
    # Перейдите в директорию проекта
-   cd 51-lesson
+   cd AI_Chat
    ```
 
 3. **Настройка VSCode**
@@ -25,7 +25,7 @@
      - Python (ms-python.python)
      - Python Environment Manager
      - Python Extension Pack
-   - Откройте проект: File -> Open Folder -> выберите папку 51-lesson
+   - Откройте проект: File -> Open Folder -> выберите папку AI_Chat
    - Выберите интерпретатор Python: 
      1. Нажмите F1 или Ctrl+Shift+P
      2. Введите "Python: Select Interpreter"
