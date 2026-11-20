@@ -1,6 +1,12 @@
 # Приложение AI Chat
 
 Чат-приложение, использующее API OpenRouter для взаимодействия с различными моделями искусственного интеллекта.
+
+- **API интеграция (api/)**
+  - Безопасное взаимодействие с OpenRouter
+  - Обработка ошибок и повторные попытки
+  - Поддержка различных моделей AI (более 215 моделей, в том числе более 20-ти бесплатных)
+    
 (инструкция к запуску в google.collab: https://colab.research.google.com/drive/1GbfvMkqRid_c4OBXcDOa-nHxJoPrQ9Z_?usp=sharing)
 
 ## Начало работы
@@ -45,8 +51,19 @@
    ```
 
 5. **Настройка переменных окружения**
-- Скопируйте файл .env.example в новый файл .env
+- Скопируйте параметры из файла .env.example в новый файл .env
 - Откройте .env и вставьте свой ID в параметр TELEGRAM_USER_ID. (для этого в Telegram необходимо найти и запустить бота-@userinfobot)
+- Должен получиться вот такой .env файл:
+   ```
+   OPENROUTER_API_KEY=''
+   BASE_URL=https://openrouter.ai/api/v1
+   DEBUG=False
+   LOG_LEVEL=INFO
+   MAX_TOKENS=1000
+   TEMPERATURE=0.7
+   TELEGRAM_BOT_TOKEN='9025596593:AAF2c5qigdIeB74N-Y0Ei9Guv5VFtNN1tvk'
+   TELEGRAM_USER_ID='INPYT_YOUR_TELEGRAM_ID'
+   ```
 - Остальные настройки можно оставить по умолчанию
 
 ## Сборка приложения
@@ -88,20 +105,6 @@ python3 build.py
 chmod +x bin/aichat
 ```
 
-## Конфигурация
-
-Создайте файл `.env` в корневой директории со следующим содержимым:
-```
-OPENROUTER_API_KEY=''
-BASE_URL=https://openrouter.ai/api/v1
-DEBUG=False
-LOG_LEVEL=INFO
-MAX_TOKENS=1000
-TEMPERATURE=0.7
-TELEGRAM_BOT_TOKEN='9025596593:AAF2c5qigdIeB74N-Y0Ei9Guv5VFtNN1tvk'
-TELEGRAM_USER_ID='INPYT_YOUR_TELEGRAM_ID'
-```
-
 ## Структура проекта
 
 ```
@@ -137,7 +140,7 @@ TELEGRAM_USER_ID='INPYT_YOUR_TELEGRAM_ID'
 
 ## Настройка отладки приложения
 
-1. Создайте файл launch.json в папке проекта .vscode:
+1. В папке проекта AI_Chat создайте папку .vscode, в ней создайте файл launch.json:
 
 ```json
 {
@@ -154,7 +157,7 @@ TELEGRAM_USER_ID='INPYT_YOUR_TELEGRAM_ID'
 }
 ```
 
-2. Создайте файл settings.json в папке проекта .vscode:
+2. Создайте файл settings.json в папке .vscode:
 ```json
 {
     "python-envs.defaultEnvManager": "ms-python.python:system",
@@ -163,7 +166,17 @@ TELEGRAM_USER_ID='INPYT_YOUR_TELEGRAM_ID'
 }
 ```
 
-- **API интеграция (api/)**
-  - Безопасное взаимодействие с OpenRouter
-  - Обработка ошибок и повторные попытки
-  - Поддержка различных моделей AI (более 215 моделей, в том числе более 20-ти бесплатных)
+## Запуск
+В терминале введите команду
+```py src/main.py ```
+
+После успешного подключения к API появится информация в консоли:
+```
+INFO - OpenRouterClient initialized successfully
+DEBUG - Fetching available models
+INFO - Retrieved 477 models
+```
+После этого возможно придется пдождать минуту, и приложение запустится.
+
+### Ошибка
+Если в консоли вы видите ```INFO - Retrieved 3 models with Error: 'data' ``` значит надо включить VPN, и запустить приложение заново.
